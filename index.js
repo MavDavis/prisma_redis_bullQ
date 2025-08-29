@@ -7,7 +7,6 @@ const prisma = new PrismaClient();
 
 app.use(express.json());
 
-// Example: get user by ID with Redis cache
 app.get("/api/user/:id", async (req, res) => {
   const id = Number(req.params.id);
 
