@@ -11,7 +11,6 @@ app.get("/api/user/:id", async (req, res) => {
   const id = Number(req.params.id);
 
   try {
-    // 1) check cache
     const key = `user:${id}`;
     const cached = await redis.get(key);
     if (cached) {
