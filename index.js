@@ -17,7 +17,6 @@ app.get("/api/user/:id", async (req, res) => {
       return res.json(JSON.parse(cached));
     }
 
-    // 2) fetch from DB
     const user = await prisma.user.findUnique({ where: { id } });
     if (!user) return res.status(404).json({ error: "User not found" });
 
