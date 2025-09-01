@@ -20,7 +20,6 @@ app.get("/api/user/:id", async (req, res) => {
     const user = await prisma.user.findUnique({ where: { id } });
     if (!user) return res.status(404).json({ error: "User not found" });
 
-    // 3) cache and return
 await redis.set(`user:${id}`, JSON.stringify(user), "EX", 60); 
     res.json(user);
   } catch (err) {
